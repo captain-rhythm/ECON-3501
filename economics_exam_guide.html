@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economics Midterm Prep Guide — CSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #faf6ee;
+    --cream: #f2ead8;
+    --gold: #c8962a;
+    --gold-light: #e8b84b;
+    --rust: #b34a1a;
+    --forest: #2a5c3f;
+    --slate: #3d4a5c;
+    --pale: #ede6d4;
+    --rule: #c8b89a;
+    --star: #d4860a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    border-bottom: 3px double var(--rule);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--rust), var(--gold), var(--forest), var(--gold), var(--rust));
+  }
+  .subject-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    border: 1.5px solid var(--rust);
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .masthead h1 span { color: var(--gold); }
+  .masthead .subtitle {
+    font-style: italic;
+    color: var(--slate);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .syllabus-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .pill {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    color: var(--slate);
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .toc ol {
+    padding-left: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1rem;
+  }
+  .toc a {
+    color: var(--slate);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .toc a:hover { color: var(--rust); }
+
+  /* ── SECTION HEADERS ── */
+  .section {
+    margin-bottom: 3.5rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--rule);
+  }
+  .section-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--ink);
+  }
+  .section-header .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* ── TOPIC BLOCKS ── */
+  .topic {
+    margin-bottom: 2.5rem;
+  }
+  .topic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .topic h4 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin: 1.2rem 0 0.4rem;
+  }
+  .topic p { margin-bottom: 0.8rem; }
+
+  .definition-box {
+    background: #f0f7f3;
+    border-left: 4px solid var(--forest);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-style: italic;
+  }
+  .definition-box strong {
+    font-style: normal;
+    color: var(--forest);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .example-box {
+    background: #fef9ed;
+    border: 1px solid var(--gold-light);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .example-box strong {
+    color: var(--gold);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── DIAGRAMS ── */
+  .diagram-wrap {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+  .diagram-wrap figcaption {
+    font-size: 0.82rem;
+    color: var(--slate);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  svg text { font-family: 'Source Serif 4', serif; }
+
+  /* ── QUESTIONS ── */
+  .q-list { list-style: none; }
+  .q-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.6rem;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+  }
+  .q-item:hover { border-color: var(--gold); }
+  .stars { font-size: 0.9rem; white-space: nowrap; color: var(--star); }
+  .q-text { flex: 1; font-size: 0.95rem; }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--rust);
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  .importance-legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--pale);
+    border: 1px solid var(--rule);
+    font-size: 0.85rem;
+  }
+
+  /* ── MODEL ANSWERS ── */
+  .model-answer {
+    border: 1.5px solid var(--rule);
+    margin-bottom: 2rem;
+  }
+  .ma-header {
+    background: var(--slate);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ma-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .ma-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.2rem 0.6rem;
+  }
+  .ma-body {
+    padding: 1.25rem 1.5rem;
+  }
+  .ma-part {
+    margin-bottom: 1rem;
+  }
+  .ma-part-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+    font-size: 0.9rem;
+  }
+  .comp-table th {
+    background: var(--slate);
+    color: white;
+    padding: 0.65rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Source Serif 4', serif;
+  }
+  .comp-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .comp-table tr:nth-child(even) td { background: var(--cream); }
+  .comp-table tr:hover td { background: #e8f4ed; }
+
+  /* ── REVISION CARDS ── */
+  .rev-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .rev-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 1rem 1.1rem;
+  }
+  .rev-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--rust);
+    margin-bottom: 0.6rem;
+  }
+  .rev-card ul {
+    padding-left: 1.1rem;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  /* ── TIPS / MISTAKES ── */
+  .tip-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .tip-col {
+    padding: 1.25rem;
+    border: 1px solid var(--rule);
+  }
+  .tip-col.wrong { border-top: 3px solid var(--rust); }
+  .tip-col.right { border-top: 3px solid var(--forest); }
+  .tip-col h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tip-col.wrong h4 { color: var(--rust); }
+  .tip-col.right h4 { color: var(--forest); }
+  .tip-col ul { padding-left: 1.1rem; font-size: 0.88rem; line-height: 1.7; }
+
+  /* ── LAST MINUTE ── */
+  .timeline {
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.25rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.45rem;
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .tl-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    margin: 0.25rem 0.15rem;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px double var(--rule);
+    color: var(--slate);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .toc ol { grid-template-columns: 1fr; }
+    .tip-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="subject-badge">CSE · Economics · Midterm Prep</div>
+  <h1>The Complete <span>Economics</span><br>Exam Preparation Guide</h1>
+  <p class="subtitle">Introduction · Microeconomics · Production Theory</p>
+  <div class="syllabus-pills">
+    <span class="pill">Topic 1 — Introduction (2 wks)</span>
+    <span class="pill">Topic 2 — Microeconomics (2 wks)</span>
+    <span class="pill">Topic 3 — Production (2 wks)</span>
+    <span class="pill">Mid-Term: 30 Marks</span>
+    <span class="pill">CLO1 · CLO2</span>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <h2>📋 Contents</h2>
+  <ol>
+    <li><a href="#theory">📖 Conceptual Theory</a></li>
+    <li><a href="#questions">🧠 Important Questions</a></li>
+    <li><a href="#answers">✍️ Model Answers</a></li>
+    <li><a href="#diagrams">📊 Diagrams & Charts</a></li>
+    <li><a href="#tables">⚖️ Comparison Tables</a></li>
+    <li><a href="#revision">🔁 Revision Sheet</a></li>
+    <li><a href="#tips">❗ Mistakes & Tips</a></li>
+    <li><a href="#lastminute">⏱️ Last-Minute Strategy</a></li>
+  </ol>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 1 — CONCEPTUAL THEORY
+═════════════════════════════════════════════════════ -->
+<section class="section" id="theory">
+  <div class="section-header">
+    <span class="section-icon">📖</span>
+    <div>
+      <span class="sec-num">Section 01</span>
+      <h2>Conceptual Theory (Exam Writing Style)</h2>
+    </div>
+  </div>
+
+  <!-- TOPIC 1 -->
+  <div class="topic">
+    <h3 class="topic-title">Topic 1 — Introduction to Economics</h3>
+
+    <div class="definition-box">
+      <strong>Definition</strong>
+      Economics is the social science that studies how individuals, firms, and governments allocate scarce resources among competing wants to satisfy unlimited human needs and desires.
+    </div>
+
+    <h4>1.1 Key Definitions (Write These Exactly)</h4>
+    <p><strong>Alfred Marshall's Definition:</strong> "Economics is a study of mankind in the ordinary business of life; it examines that part of individual and social action which is most closely connected with the attainment and with the use of the material requisites of well-being."</p>
+    <p><strong>Lionel Robbins' Definition:</strong> "Economics is the science which studies human behaviour as a relationship between ends and scarce means which have alternative uses."</p>
+    <p><strong>Modern Definition:</strong> Economics is the study of how society manages its scarce resources — how people decide what to produce, how to produce it, and for whom to produce it.</p>
+
+    <h4>1.2 Scope and Utility of Studying Economics</h4>
+    <p>The scope of economics is broad, covering both the individual level (microeconomics) and the national/global level (macroeconomics). For engineering students specifically, economics provides essential tools to evaluate engineering projects, allocate budgets, understand cost structures, and make financially sound technical decisions.</p>
+    <p><strong>Scope includes:</strong> Theory of demand and supply; theory of production and cost; national income; money and banking; trade and economic development.</p>
+    <p><strong>Utility includes:</strong></p>
+    <ul style="padding-left:1.5rem;margin-bottom:0.8rem;">
+      <li>Helps engineers understand resource allocation in projects</li>
+      <li>Provides framework for cost-benefit analysis</li>
+      <li>Assists in understanding market structures and pricing</li>
+      <li>Guides national development planning and policy-making</li>
+      <li>Useful in solving economic problems of developing nations like Bangladesh</li>
+    </ul>
+
+    <div class="example-box">
+      <strong>Exam Example</strong>
+      When an engineering firm decides whether to invest in new machinery, it uses economic concepts of marginal cost, marginal benefit, and opportunity cost — all rooted in basic economic theory studied in this course.
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <div class="topic">
+    <h3 class="topic-title">Topic 2 — Microeconomics</h3>
+
+    <div class="definition-box">
+      <strong>Definition</strong>
+      Microeconomics is the branch of economics that studies the behaviour of individual consumers, firms, and industries, and how prices are determined in specific markets through the interaction of demand and supply.
+    </div>
+
+    <h4>2.1 Theory of Demand</h4>
+    <p><strong>Law of Demand:</strong> Other things remaining equal (ceteris paribus), when the price of a commodity falls, its quantity demanded rises, and vice versa. This establishes an inverse relationship between price and quantity demanded.</p>
+    <p><strong>Demand Function:</strong> <span class="formula">Qd = f(P, Pc, Y, T, E)</span> where P = price, Pc = price of related goods, Y = income, T = taste, E = expectations.</p>
+
+    <h4>2.2 Elasticity of Demand</h4>
+    <p>Elasticity measures how responsive quantity demanded is to a change in price or income. It is a critical concept for pricing decisions and government tax policy.</p>
+    <p><strong>Price Elasticity of Demand (PED):</strong></p>
+    <span class="formula">PED = % Change in Quantity Demanded / % Change in Price</span>
+    <p style="margin-top:0.8rem;"><strong>Types:</strong> If |PED| > 1 → Elastic demand. If |PED| < 1 → Inelastic demand. If |PED| = 1 → Unitary elastic.</p>
+
+    <h4>2.3 Theory of Supply & Price Determination</h4>
+    <p><strong>Law of Supply:</strong> Other things being equal, as the price of a commodity increases, the quantity supplied also increases. This establishes a direct (positive) relationship between price and quantity supplied.</p>
+    <p><strong>Equilibrium Price:</strong> The price at which Quantity Demanded = Quantity Supplied. At this price, the market clears — there is neither excess demand nor excess supply. This is also called the market-clearing price.</p>
+
+    <h4>2.4 Nature of Economic Theory</h4>
+    <p>Economic theory consists of generalized principles and models that explain and predict economic behaviour. Economic theories are abstract simplifications of reality, derived through deductive and inductive reasoning. They are not always perfect descriptions of the real world but serve as useful tools for analysis and policy-making.</p>
+
+    <h4>2.5 Applicability to Problems of Developing Countries</h4>
+    <p>Classical Western economic theories often need modification when applied to developing nations like Bangladesh. Key issues include: dual economies (modern vs. traditional sectors), disguised unemployment in agriculture, low capital formation, structural rigidities, and market imperfections. Economic theories help developing countries frame policies for poverty alleviation, industrialization, and sustainable growth.</p>
+
+    <h4>2.6 Indifference Curves Technique</h4>
+    <div class="definition-box">
+      <strong>Definition</strong>
+      An indifference curve is a graphical representation of all combinations of two goods that give a consumer equal satisfaction (utility), so the consumer is indifferent between them.
+    </div>
+    <p><strong>Properties of Indifference Curves:</strong></p>
+    <ul style="padding-left:1.5rem;margin-bottom:0.8rem;">
+      <li><em>Downward sloping:</em> To maintain the same utility, if more of one good is taken, less of the other must be consumed.</li>
+      <li><em>Convex to the origin:</em> Due to the principle of diminishing MRS (Marginal Rate of Substitution).</li>
+      <li><em>Cannot intersect:</em> Intersection would imply a logical contradiction (two different utility levels being equal).</li>
+      <li><em>Higher curves = higher utility:</em> A curve further from the origin represents a higher level of satisfaction.</li>
+    </ul>
+    <p><strong>Consumer Equilibrium:</strong> Achieved where the budget line is tangent to the highest possible indifference curve. At this point, <span class="formula">MRS = Px / Py</span></p>
+
+    <h4>2.7 Marginal Utility Analysis</h4>
+    <div class="definition-box">
+      <strong>Definition</strong>
+      Marginal Utility (MU) is the additional utility (satisfaction) a consumer gains from consuming one additional unit of a commodity.
+    </div>
+    <p><strong>Law of Diminishing Marginal Utility:</strong> As a consumer consumes more and more units of a commodity, the additional satisfaction (marginal utility) derived from each successive unit keeps on decreasing, while total utility keeps increasing at a decreasing rate, eventually reaching a maximum (point of saturation) and then declining.</p>
+    <p><strong>Consumer Equilibrium (Utility Maximisation):</strong> A rational consumer maximises utility by distributing income such that: <span class="formula">MUx/Px = MUy/Py = MU of money</span></p>
+    <div class="example-box">
+      <strong>Exam Example</strong>
+      A student eating slices of pizza: the 1st slice gives great satisfaction (MU = 10), 2nd gives less (MU = 7), 3rd gives even less (MU = 3). This illustrates the Law of Diminishing Marginal Utility perfectly.
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <div class="topic">
+    <h3 class="topic-title">Topic 3 — Production Theory</h3>
+
+    <div class="definition-box">
+      <strong>Definition</strong>
+      Production is the process of transforming inputs (land, labour, capital, entrepreneurship) into outputs (goods and services) that satisfy human wants.
+    </div>
+
+    <h4>3.1 Production Function</h4>
+    <p>A production function expresses the functional (mathematical) relationship between the physical inputs used in the production process and the physical output produced.</p>
+    <span class="formula">Q = f(L, K, N, E)</span>
+    <p style="margin-top:0.8rem;">Where Q = Quantity of output, L = Labour, K = Capital, N = Natural resources, E = Enterprise.</p>
+    <p><strong>Short-Run vs Long-Run Production Function:</strong> In the short run, at least one factor is fixed (usually capital). In the long run, all factors are variable, allowing the firm to adjust its scale of production.</p>
+
+    <h4>3.2 Types of Productivity</h4>
+    <p><strong>Total Product (TP):</strong> The total quantity of output produced by all units of a variable factor (e.g., labour) combined with fixed factors.</p>
+    <p><strong>Average Product (AP):</strong> Output per unit of the variable factor. <span class="formula">AP = TP / L</span></p>
+    <p><strong>Marginal Product (MP):</strong> The change in total product resulting from employing one additional unit of the variable factor. <span class="formula">MP = ΔTP / ΔL</span></p>
+    <p><strong>Law of Diminishing Marginal Returns (Short Run):</strong> As successive units of a variable factor (labour) are added to a fixed factor (capital), the marginal product of the variable factor will eventually decline.</p>
+
+    <h4>3.3 Isoquants and Isocosts</h4>
+    <div class="definition-box">
+      <strong>Isoquant (Equal Product Curve)</strong>
+      An isoquant is a curve showing all combinations of two factors of production (Labour and Capital) that yield the same level of output.
+    </div>
+    <p><strong>Properties of Isoquants:</strong> Downward sloping; convex to origin (due to diminishing MRTS); cannot intersect; higher isoquant = higher output.</p>
+    <p><strong>Marginal Rate of Technical Substitution (MRTS):</strong></p>
+    <span class="formula">MRTS(L,K) = -ΔK/ΔL = MPL / MPK</span>
+
+    <div class="definition-box">
+      <strong>Isocost Line (Equal Cost Line)</strong>
+      An isocost line represents all possible combinations of two inputs (Labour and Capital) that can be purchased with a given total budget (cost) at fixed input prices.
+    </div>
+    <span class="formula">C = wL + rK</span>
+    <p style="margin-top:0.6rem;">Where C = Total cost, w = Wage rate (price of labour), r = Rental rate (price of capital).</p>
+
+    <h4>3.4 Rational Region of Production (Ridge Lines)</h4>
+    <p>The rational region of production is the area on the isoquant map where production is technically efficient. It is bounded by the ridge lines — the loci of points where the MRTS equals zero (upper ridge) and infinity (lower ridge). Outside this region, the MRTS becomes negative, implying that both inputs need to increase to maintain the same output, which is irrational.</p>
+    <p><strong>Producer's Equilibrium:</strong> The firm minimises cost (or maximises output for a given cost) at the tangency point of the isocost line with the highest possible isoquant. Condition: <span class="formula">MRTS = w/r  OR  MPL/w = MPK/r</span></p>
+
+    <h4>3.5 Euler's Theorem</h4>
+    <div class="definition-box">
+      <strong>Euler's Theorem (Product Exhaustion Theorem)</strong>
+      If the production function is homogeneous of degree one (i.e., exhibits constant returns to scale), then the total product is exactly exhausted when each factor is paid its marginal product.
+    </div>
+    <span class="formula">Q = L · MPL + K · MPK</span>
+    <p style="margin-top:0.6rem;"><strong>Significance for engineering firms:</strong> This theorem justifies paying factors of production their marginal products, ensuring that total output is fully distributed among inputs — a cornerstone of income distribution theory. In an engineering firm, if the production function shows CRS, total revenue exactly covers all factor payments at competitive rates.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 2 — IMPORTANT QUESTIONS
+═════════════════════════════════════════════════════ -->
+<section class="section" id="questions">
+  <div class="section-header">
+    <span class="section-icon">🧠</span>
+    <div>
+      <span class="sec-num">Section 02</span>
+      <h2>Important Questions (High Probability)</h2>
+    </div>
+  </div>
+
+  <div class="importance-legend">
+    <span>⭐ Very Important</span>
+    <span>⭐⭐ Most Repeated</span>
+    <span>⭐⭐⭐ Must Study (will definitely come)</span>
+  </div>
+
+  <ul class="q-list">
+    <li class="q-item"><span class="stars">⭐⭐⭐</span><span class="q-text">Define economics. Explain the scope and utility of studying economics for engineering students.</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐⭐</span><span class="q-text">State and explain the Law of Diminishing Marginal Utility with a table and diagram. Discuss its limitations.</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐⭐</span><span class="q-text">What is an Indifference Curve? Explain its properties. How is consumer equilibrium determined using indifference curves?</span><span class="q-marks">10–15M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐⭐</span><span class="q-text">Define isoquant and isocost. How is producer equilibrium determined? Show with a diagram.</span><span class="q-marks">10–15M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐⭐</span><span class="q-text">State Euler's Theorem and explain its significance in the context of an engineering firm.</span><span class="q-marks">5–10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐</span><span class="q-text">Explain the Law of Demand and Law of Supply. How is equilibrium price determined in a free market?</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐</span><span class="q-text">What is elasticity of demand? Explain its types with examples. What are the factors determining PED?</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐</span><span class="q-text">Discuss the production function. Differentiate between Total Product, Average Product, and Marginal Product.</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐⭐</span><span class="q-text">What is the rational region of production? Explain with the help of ridge lines and isoquant diagram.</span><span class="q-marks">10M</span></li>
+    <li class="q-item"><span class="stars">⭐</span><span class="q-text">How are economic theories applicable to the problems of developing countries? Discuss with examples.</span><span class="q-marks">5–10M</span></li>
+    <li class="q-item"><span class="stars">⭐</span><span class="q-text">Compare Marginal Utility Analysis and Indifference Curve Analysis as tools for consumer theory.</span><span class="q-marks">5–10M</span></li>
+    <li class="q-item"><span class="stars">⭐</span><span class="q-text">Short note: (a) MRTS (b) Returns to Scale (c) Price Determination (d) Isocost line</span><span class="q-marks">5M each</span></li>
+  </ul>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 3 — MODEL ANSWERS
+═════════════════════════════════════════════════════ -->
+<section class="section" id="answers">
+  <div class="section-header">
+    <span class="section-icon">✍️</span>
+    <div>
+      <span class="sec-num">Section 03</span>
+      <h2>Model Answers</h2>
+    </div>
+  </div>
+
+  <!-- MODEL ANSWER 1 -->
+  <div class="model-answer">
+    <div class="ma-header">
+      <h4>Q1. Define Economics. Explain scope and utility for engineering students.</h4>
+      <span class="ma-marks">10 Marks</span>
+    </div>
+    <div class="ma-body">
+      <div class="ma-part">
+        <div class="ma-part-label">Introduction</div>
+        <p>Economics is derived from the Greek word "Oikonomia" meaning household management. It is a social science that deals with the allocation of limited resources to satisfy unlimited human wants. Among the various definitions, Lionel Robbins' definition is most widely accepted: "Economics is the science which studies human behaviour as a relationship between ends and scarce means which have alternative uses."</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Scope of Economics</div>
+        <p>The scope of economics is broad and encompasses both microeconomics (individual decision-making) and macroeconomics (aggregate economic behaviour). It covers topics such as demand and supply analysis, production theory, price theory, national income, money and banking, and international trade. Modern economics also extends to development economics, environmental economics, and behavioural economics.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Utility for Engineering Students</div>
+        <p>For CSE and other engineering students, economics offers invaluable analytical tools. First, it enables cost-benefit analysis of engineering projects — evaluating whether the benefits of a software system or infrastructure project outweigh its costs. Second, it provides understanding of market forces, helping engineers design products that meet real consumer demand at competitive prices. Third, knowledge of pricing, demand elasticity, and production theory guides business decisions in tech firms and startups. Fourth, it prepares students to understand national economic policies that affect employment, investment in technology, and industrial growth. In a developing country like Bangladesh, engineers must understand economic constraints to design cost-effective and scalable solutions.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Conclusion</div>
+        <p>In conclusion, economics is not merely a subject for commerce students — it is a fundamental discipline that equips engineers with a rational decision-making framework. Its scope is wide and its utility for engineering practice is both theoretical and practical.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL ANSWER 2 -->
+  <div class="model-answer">
+    <div class="ma-header">
+      <h4>Q2. Define Isoquant & Isocost. Determine producer equilibrium with diagram.</h4>
+      <span class="ma-marks">15 Marks</span>
+    </div>
+    <div class="ma-body">
+      <div class="ma-part">
+        <div class="ma-part-label">Introduction</div>
+        <p>In production theory, the optimum combination of inputs is determined by combining two analytical tools: the isoquant (representing production possibilities) and the isocost line (representing budget constraints). Together, they identify the point of producer equilibrium — where the producer achieves maximum output at minimum cost.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Isoquant (Equal Product Curve)</div>
+        <p>An isoquant is a curve that shows all technically efficient combinations of two factors of production — Labour (L) and Capital (K) — that produce the same level of output. Properties include: it slopes downward from left to right; it is convex to the origin (due to diminishing MRTS); isoquants never intersect; and higher isoquants represent higher output levels.</p>
+        <p>The slope of the isoquant at any point measures the Marginal Rate of Technical Substitution (MRTS):
+        <span class="formula">MRTS = MPL / MPK = -ΔK/ΔL</span></p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Isocost Line</div>
+        <p>An isocost line shows all combinations of Labour (L) and Capital (K) that can be purchased for a given total expenditure (C) at given input prices (w for labour, r for capital). Its equation is:
+        <span class="formula">C = wL + rK</span>
+        The slope of the isocost line = −w/r, representing the price ratio of the two inputs.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Producer Equilibrium</div>
+        <p>The producer is in equilibrium at the point where the isocost line is tangent to the highest possible isoquant. At this tangency point, the slope of the isoquant equals the slope of the isocost line:</p>
+        <span class="formula">MRTS = w/r  →  MPL/w = MPK/r</span>
+        <p style="margin-top:0.6rem;">This condition means the last rupee/taka spent on each factor yields the same additional output, ensuring cost minimisation for a given level of output (or equivalently, output maximisation for a given cost).</p>
+        <p><em>[See Diagram in Section 4 below]</em></p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Conclusion</div>
+        <p>Producer equilibrium achieved through isoquant-isocost analysis is analogous to consumer equilibrium via indifference curves. It provides a rational basis for input hiring decisions in engineering firms and industrial production, ensuring the most efficient use of available resources.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL ANSWER 3 -->
+  <div class="model-answer">
+    <div class="ma-header">
+      <h4>Q3. State Euler's Theorem and explain its significance for an engineering firm.</h4>
+      <span class="ma-marks">10 Marks</span>
+    </div>
+    <div class="ma-body">
+      <div class="ma-part">
+        <div class="ma-part-label">Statement</div>
+        <p>Euler's Theorem in economics, also known as the Product Exhaustion Theorem, states that if a production function exhibits constant returns to scale (homogeneous of degree one), then the total product is exactly exhausted when each factor of production is paid a reward equal to its marginal product.</p>
+        <span class="formula">Q = L · MPL + K · MPK</span>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Explanation</div>
+        <p>A production function Q = f(L, K) is said to be homogeneous of degree one if, when all inputs are multiplied by a constant λ, the output also multiplies by λ: f(λL, λK) = λ·Q. This represents constant returns to scale.</p>
+        <p>Euler's mathematical theorem states that for such a function: Q = L·(∂Q/∂L) + K·(∂Q/∂K), which in economic terms translates to: Total Output = Labour × Marginal Product of Labour + Capital × Marginal Product of Capital.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Significance for Engineering Firms</div>
+        <p>For an engineering firm with a CRS production function, Euler's Theorem has critical implications. First, it justifies competitive factor pricing — if each engineer (labour unit) and each machine (capital unit) is paid its marginal product, total output is exactly distributed and no surplus remains. Second, it supports the claim that competitive markets can achieve distributionally fair outcomes. Third, it provides a theoretical basis for profit-and-loss analysis in firms: if the production function has CRS and factor markets are competitive, economic profit is zero in the long run. An engineering software firm with scalable technology often exhibits CRS, making this theorem directly applicable in workforce and investment planning.</p>
+      </div>
+      <div class="ma-part">
+        <div class="ma-part-label">Conclusion</div>
+        <p>In summary, Euler's Theorem provides a mathematically elegant and economically meaningful result: under CRS, paying every factor its marginal product ensures complete and fair distribution of total product — with no residual undistributed output.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 4 — DIAGRAMS
+═════════════════════════════════════════════════════ -->
+<section class="section" id="diagrams">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <div>
+      <span class="sec-num">Section 04</span>
+      <h2>Diagrams & Charts</h2>
+    </div>
+  </div>
+
+  <!-- Diagram 1: Supply & Demand Equilibrium -->
+  <div class="topic">
+    <h3 class="topic-title">Diagram 1 — Supply & Demand Equilibrium</h3>
+    <div class="diagram-wrap">
+      <svg width="380" height="320" viewBox="0 0 380 320" style="background:#faf6ee;border:1px solid #c8b89a;">
+        <!-- Axes -->
+        <line x1="60" y1="280" x2="340" y2="280" stroke="#1a1208" stroke-width="2"/>
+        <line x1="60" y1="280" x2="60" y2="30" stroke="#1a1208" stroke-width="2"/>
+        <!-- Arrowheads -->
+        <polygon points="340,280 330,275 330,285" fill="#1a1208"/>
+        <polygon points="60,30 55,40 65,40" fill="#1a1208"/>
+        <!-- Axis Labels -->
+        <text x="350" y="284" font-size="13" fill="#1a1208">Q</text>
+        <text x="45" y="26" font-size="13" fill="#1a1208">P</text>
+        <!-- Demand Curve -->
+        <line x1="80" y1="60" x2="320" y2="265" stroke="#b34a1a" stroke-width="2.5"/>
+        <text x="325" y="268" font-size="12" fill="#b34a1a">D</text>
+        <!-- Supply Curve -->
+        <line x1="80" y1="265" x2="320" y2="60" stroke="#2a5c3f" stroke-width="2.5"/>
+        <text x="325" y="60" font-size="12" fill="#2a5c3f">S</text>
+        <!-- Equilibrium Point -->
+        <circle cx="200" cy="163" r="6" fill="#c8962a" stroke="#1a1208" stroke-width="1.5"/>
+        <!-- Dashed lines to axes -->
+        <line x1="200" y1="163" x2="200" y2="280" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="200" y1="163" x2="60" y2="163" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <!-- Labels -->
+        <text x="192" y="298" font-size="11" fill="#c8962a">Q*</text>
+        <text x="28" y="167" font-size="11" fill="#c8962a">P*</text>
+        <text x="185" y="148" font-size="11" fill="#c8962a" font-weight="bold">E</text>
+        <text x="120" y="15" font-size="13" fill="#3d4a5c" font-weight="bold">Market Equilibrium</text>
+      </svg>
+      <figcaption>Fig 1: Demand & Supply Equilibrium. E = Equilibrium, P* = Equilibrium Price, Q* = Equilibrium Quantity</figcaption>
+    </div>
+  </div>
+
+  <!-- Diagram 2: Indifference Curve + Budget Line -->
+  <div class="topic">
+    <h3 class="topic-title">Diagram 2 — Consumer Equilibrium (IC Analysis)</h3>
+    <div class="diagram-wrap">
+      <svg width="380" height="330" viewBox="0 0 380 330" style="background:#faf6ee;border:1px solid #c8b89a;">
+        <!-- Axes -->
+        <line x1="60" y1="290" x2="350" y2="290" stroke="#1a1208" stroke-width="2"/>
+        <line x1="60" y1="290" x2="60" y2="30" stroke="#1a1208" stroke-width="2"/>
+        <polygon points="350,290 340,285 340,295" fill="#1a1208"/>
+        <polygon points="60,30 55,40 65,40" fill="#1a1208"/>
+        <text x="355" y="294" font-size="12" fill="#1a1208">Good X</text>
+        <text x="28" y="26" font-size="12" fill="#1a1208">Good Y</text>
+        <!-- IC1 -->
+        <path d="M 80 260 Q 140 160 310 100" stroke="#b34a1a" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+        <text x="312" y="100" font-size="11" fill="#b34a1a">IC₁</text>
+        <!-- IC2 (optimal) -->
+        <path d="M 90 285 Q 160 185 330 130" stroke="#2a5c3f" stroke-width="2.5" fill="none"/>
+        <text x="332" y="130" font-size="11" fill="#2a5c3f">IC₂</text>
+        <!-- IC3 -->
+        <path d="M 100 290 Q 185 205 340 165" stroke="#3d4a5c" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+        <text x="342" y="165" font-size="11" fill="#3d4a5c">IC₃</text>
+        <!-- Budget Line -->
+        <line x1="80" y1="260" x2="300" y2="130" stroke="#c8962a" stroke-width="2.5"/>
+        <text x="295" y="122" font-size="11" fill="#c8962a">Budget Line</text>
+        <!-- Equilibrium point -->
+        <circle cx="185" cy="195" r="6" fill="#c8962a" stroke="#1a1208" stroke-width="1.5"/>
+        <line x1="185" y1="195" x2="185" y2="290" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="185" y1="195" x2="60" y2="195" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="178" y="308" font-size="11" fill="#c8962a">X*</text>
+        <text x="28" y="199" font-size="11" fill="#c8962a">Y*</text>
+        <text x="192" y="188" font-size="12" fill="#c8962a" font-weight="bold">E</text>
+        <text x="120" y="20" font-size="13" fill="#3d4a5c" font-weight="bold">Consumer Equilibrium</text>
+      </svg>
+      <figcaption>Fig 2: Consumer Equilibrium at E — tangency of budget line with IC₂ (highest attainable IC). At E, MRS = Px/Py.</figcaption>
+    </div>
+  </div>
+
+  <!-- Diagram 3: Isoquant + Isocost -->
+  <div class="topic">
+    <h3 class="topic-title">Diagram 3 — Producer Equilibrium (Isoquant-Isocost)</h3>
+    <div class="diagram-wrap">
+      <svg width="380" height="330" viewBox="0 0 380 330" style="background:#faf6ee;border:1px solid #c8b89a;">
+        <line x1="60" y1="290" x2="350" y2="290" stroke="#1a1208" stroke-width="2"/>
+        <line x1="60" y1="290" x2="60" y2="30" stroke="#1a1208" stroke-width="2"/>
+        <polygon points="350,290 340,285 340,295" fill="#1a1208"/>
+        <polygon points="60,30 55,40 65,40" fill="#1a1208"/>
+        <text x="350" y="305" font-size="12" fill="#1a1208">Labour (L)</text>
+        <text x="20" y="26" font-size="12" fill="#1a1208">Capital (K)</text>
+        <!-- IQ1 -->
+        <path d="M 80 275 Q 140 175 300 105" stroke="#b34a1a" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+        <text x="302" y="104" font-size="11" fill="#b34a1a">IQ₁</text>
+        <!-- IQ2 (optimal) -->
+        <path d="M 90 285 Q 165 185 310 130" stroke="#2a5c3f" stroke-width="2.5" fill="none"/>
+        <text x="312" y="130" font-size="11" fill="#2a5c3f">IQ₂</text>
+        <!-- IQ3 -->
+        <path d="M 100 290 Q 200 210 320 175" stroke="#3d4a5c" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+        <text x="322" y="174" font-size="11" fill="#3d4a5c">IQ₃</text>
+        <!-- Isocost Line -->
+        <line x1="75" y1="255" x2="295" y2="128" stroke="#c8962a" stroke-width="2.5"/>
+        <text x="286" y="118" font-size="11" fill="#c8962a">Isocost</text>
+        <!-- Equilibrium -->
+        <circle cx="183" cy="193" r="6" fill="#c8962a" stroke="#1a1208" stroke-width="1.5"/>
+        <line x1="183" y1="193" x2="183" y2="290" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <line x1="183" y1="193" x2="60" y2="193" stroke="#c8962a" stroke-width="1.2" stroke-dasharray="5,4"/>
+        <text x="176" y="308" font-size="11" fill="#c8962a">L*</text>
+        <text x="28" y="197" font-size="11" fill="#c8962a">K*</text>
+        <text x="190" y="186" font-size="12" fill="#c8962a" font-weight="bold">E</text>
+        <text x="100" y="20" font-size="13" fill="#3d4a5c" font-weight="bold">Producer Equilibrium</text>
+      </svg>
+      <figcaption>Fig 3: Producer Equilibrium at E — tangency of Isocost with IQ₂ (highest achievable isoquant). Condition: MRTS = w/r.</figcaption>
+    </div>
+  </div>
+
+  <!-- Diagram 4: TP, AP, MP -->
+  <div class="topic">
+    <h3 class="topic-title">Diagram 4 — Total, Average & Marginal Product</h3>
+    <div class="diagram-wrap">
+      <svg width="400" height="320" viewBox="0 0 400 320" style="background:#faf6ee;border:1px solid #c8b89a;">
+        <line x1="60" y1="280" x2="370" y2="280" stroke="#1a1208" stroke-width="2"/>
+        <line x1="60" y1="280" x2="60" y2="20" stroke="#1a1208" stroke-width="2"/>
+        <polygon points="370,280 360,275 360,285" fill="#1a1208"/>
+        <polygon points="60,20 55,30 65,30" fill="#1a1208"/>
+        <text x="372" y="284" font-size="12" fill="#1a1208">L</text>
+        <text x="40" y="17" font-size="12" fill="#1a1208">Q</text>
+        <!-- TP curve -->
+        <path d="M 70 275 Q 150 100 230 60 Q 290 40 340 80" stroke="#2a5c3f" stroke-width="2.5" fill="none"/>
+        <text x="342" y="78" font-size="11" fill="#2a5c3f" font-weight="bold">TP</text>
+        <!-- AP curve -->
+        <path d="M 90 260 Q 170 140 230 120 Q 280 115 340 140" stroke="#b34a1a" stroke-width="2" fill="none"/>
+        <text x="342" y="140" font-size="11" fill="#b34a1a">AP</text>
+        <!-- MP curve -->
+        <path d="M 80 250 Q 140 100 210 110 Q 255 115 290 155 Q 320 195 350 220" stroke="#c8962a" stroke-width="2" fill="none"/>
+        <text x="352" y="222" font-size="11" fill="#c8962a">MP</text>
+        <!-- Inflection / max TP marker -->
+        <line x1="290" y1="40" x2="290" y2="280" stroke="#3d4a5c" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="270" y="298" font-size="10" fill="#3d4a5c">Max TP</text>
+        <!-- Max MP point -->
+        <circle cx="155" cy="100" r="4" fill="#c8962a"/>
+        <text x="158" y="95" font-size="10" fill="#c8962a">Max MP</text>
+        <text x="100" y="15" font-size="13" fill="#3d4a5c" font-weight="bold">TP, AP & MP Curves</text>
+        <!-- Stage labels -->
+        <text x="90" y="310" font-size="9" fill="#3d4a5c">Stage I</text>
+        <text x="185" y="310" font-size="9" fill="#3d4a5c">Stage II</text>
+        <text x="305" y="310" font-size="9" fill="#3d4a5c">Stage III</text>
+        <line x1="170" y1="278" x2="170" y2="285" stroke="#3d4a5c"/>
+        <line x1="295" y1="278" x2="295" y2="285" stroke="#3d4a5c"/>
+      </svg>
+      <figcaption>Fig 4: TP rises at increasing rate (Stage I), then decreasing rate (Stage II), then falls (Stage III). MP intersects AP at AP's maximum. When TP is max, MP = 0.</figcaption>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 5 — COMPARISON TABLES
+═════════════════════════════════════════════════════ -->
+<section class="section" id="tables">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <div>
+      <span class="sec-num">Section 05</span>
+      <h2>Comparison Tables</h2>
+    </div>
+  </div>
+
+  <div class="topic">
+    <h3 class="topic-title">Table 1 — Marginal Utility Analysis vs. Indifference Curve Analysis</h3>
+    <table class="comp-table">
+      <thead><tr><th>Basis</th><th>MU Analysis</th><th>IC Analysis</th></tr></thead>
+      <tbody>
+        <tr><td>Founder</td><td>Alfred Marshall</td><td>Hicks & Allen</td></tr>
+        <tr><td>Assumption</td><td>Utility is measurable (Cardinal)</td><td>Utility is rankable (Ordinal)</td></tr>
+        <tr><td>Tool Used</td><td>MU schedules and tables</td><td>Indifference curves and budget line</td></tr>
+        <tr><td>Utility Measurable?</td><td>Yes, in utils</td><td>No, only ranked</td></tr>
+        <tr><td>MU of Money</td><td>Assumed constant</td><td>Not required</td></tr>
+        <tr><td>Equilibrium Condition</td><td>MUx/Px = MUy/Py = MU of money</td><td>MRS = Px/Py (tangency condition)</td></tr>
+        <tr><td>Realism</td><td>Less realistic</td><td>More realistic</td></tr>
+        <tr><td>Income & Substitution Effect</td><td>Cannot separate</td><td>Can separate (Hicksian)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic">
+    <h3 class="topic-title">Table 2 — Isoquant vs. Indifference Curve</h3>
+    <table class="comp-table">
+      <thead><tr><th>Basis</th><th>Isoquant</th><th>Indifference Curve</th></tr></thead>
+      <tbody>
+        <tr><td>Represents</td><td>Equal output combinations of inputs</td><td>Equal utility combinations of goods</td></tr>
+        <tr><td>Used by</td><td>Producers / Firms</td><td>Consumers / Households</td></tr>
+        <tr><td>Constraint Line</td><td>Isocost line</td><td>Budget (Price) line</td></tr>
+        <tr><td>Slope Measures</td><td>MRTS (Marginal Rate of Technical Substitution)</td><td>MRS (Marginal Rate of Substitution)</td></tr>
+        <tr><td>Equilibrium</td><td>MRTS = w/r</td><td>MRS = Px/Py</td></tr>
+        <tr><td>Higher curve means</td><td>Higher output</td><td>Higher utility</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic">
+    <h3 class="topic-title">Table 3 — Types of Returns to Scale</h3>
+    <table class="comp-table">
+      <thead><tr><th>Type</th><th>What happens when inputs double?</th><th>Example</th><th>Euler's Theorem</th></tr></thead>
+      <tbody>
+        <tr><td>Increasing Returns to Scale (IRS)</td><td>Output more than doubles</td><td>Large factories with specialisation</td><td>Does NOT apply</td></tr>
+        <tr><td>Constant Returns to Scale (CRS)</td><td>Output exactly doubles</td><td>Perfect replication of production</td><td>APPLIES (Product Exhaustion)</td></tr>
+        <tr><td>Decreasing Returns to Scale (DRS)</td><td>Output less than doubles</td><td>Management difficulties at large scale</td><td>Does NOT apply</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic">
+    <h3 class="topic-title">Table 4 — TP, AP & MP Relationships</h3>
+    <table class="comp-table">
+      <thead><tr><th>TP Behaviour</th><th>MP Behaviour</th><th>AP Behaviour</th></tr></thead>
+      <tbody>
+        <tr><td>Increasing at increasing rate</td><td>MP is rising (Stage I)</td><td>AP is rising</td></tr>
+        <tr><td>Increasing at decreasing rate</td><td>MP is falling but positive (Stage II)</td><td>AP is falling</td></tr>
+        <tr><td>At maximum</td><td>MP = 0</td><td>AP is at some positive level</td></tr>
+        <tr><td>Declining</td><td>MP is negative (Stage III)</td><td>AP is declining</td></tr>
+        <tr><td>AP at maximum</td><td>MP = AP (MP crosses AP from above)</td><td>AP is at peak</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 6 — REVISION SHEET
+═════════════════════════════════════════════════════ -->
+<section class="section" id="revision">
+  <div class="section-header">
+    <span class="section-icon">🔁</span>
+    <div>
+      <span class="sec-num">Section 06</span>
+      <h2>Short Notes / Revision Sheet</h2>
+    </div>
+  </div>
+
+  <div class="rev-grid">
+    <div class="rev-card">
+      <h4>📌 Key Definitions</h4>
+      <ul>
+        <li><strong>Economics:</strong> Science of allocating scarce resources among unlimited wants (Robbins)</li>
+        <li><strong>Microeconomics:</strong> Study of individual economic units</li>
+        <li><strong>Demand:</strong> Desire + ability + willingness to pay</li>
+        <li><strong>Utility:</strong> Satisfaction derived from consumption</li>
+        <li><strong>Isoquant:</strong> Equal output curve for inputs</li>
+        <li><strong>Isocost:</strong> Equal cost line for inputs</li>
+      </ul>
+    </div>
+    <div class="rev-card">
+      <h4>🔢 Essential Formulas</h4>
+      <ul>
+        <li>PED = %ΔQd / %ΔP</li>
+        <li>AP = TP / L</li>
+        <li>MP = ΔTP / ΔL</li>
+        <li>MRTS = MPL / MPK</li>
+        <li>Isocost: C = wL + rK</li>
+        <li>Consumer EQ: MUx/Px = MUy/Py</li>
+        <li>Euler's: Q = L·MPL + K·MPK</li>
+      </ul>
+    </div>
+    <div class="rev-card">
+      <h4>📐 Properties to Remember</h4>
+      <ul>
+        <li>IC: Downward sloping, convex, no intersection</li>
+        <li>Isoquant: Same properties as IC</li>
+        <li>When MP = AP → AP is at maximum</li>
+        <li>When TP is max → MP = 0</li>
+        <li>Higher IC/IQ = higher utility/output</li>
+        <li>Budget line slope = −Px/Py</li>
+        <li>Isocost slope = −w/r</li>
+      </ul>
+    </div>
+    <div class="rev-card">
+      <h4>⚖️ Equilibrium Conditions</h4>
+      <ul>
+        <li><strong>Market:</strong> Qd = Qs at P*</li>
+        <li><strong>Consumer (MU):</strong> MUx/Px = MUy/Py</li>
+        <li><strong>Consumer (IC):</strong> MRS = Px/Py</li>
+        <li><strong>Producer:</strong> MRTS = w/r → MPL/w = MPK/r</li>
+        <li><strong>Euler's CRS:</strong> Q = L·MPL + K·MPK</li>
+      </ul>
+    </div>
+    <div class="rev-card">
+      <h4>📋 Types & Classifications</h4>
+      <ul>
+        <li><strong>Demand Elasticity:</strong> Elastic (>1), Inelastic (<1), Unitary (=1)</li>
+        <li><strong>Returns to Scale:</strong> IRS, CRS, DRS</li>
+        <li><strong>Production Stages:</strong> I, II (rational), III</li>
+        <li><strong>Economic branches:</strong> Micro, Macro, Dev. Econ</li>
+      </ul>
+    </div>
+    <div class="rev-card">
+      <h4>🌍 Application in Developing Countries</h4>
+      <ul>
+        <li>Dual economy structure</li>
+        <li>Disguised unemployment in agriculture</li>
+        <li>Low capital formation → use labour-intensive methods</li>
+        <li>Market imperfections require govt. intervention</li>
+        <li>Apply modified economic theories, not blindly adopt Western models</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 7 — MISTAKES & TIPS
+═════════════════════════════════════════════════════ -->
+<section class="section" id="tips">
+  <div class="section-header">
+    <span class="section-icon">❗</span>
+    <div>
+      <span class="sec-num">Section 07</span>
+      <h2>Common Mistakes & Examiner Tips</h2>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-col wrong">
+      <h4>❌ Common Mistakes</h4>
+      <ul>
+        <li>Writing only definitions without explanation — you lose marks for depth</li>
+        <li>Drawing unlabeled diagrams — always label axes, curves, and equilibrium point</li>
+        <li>Confusing MRTS (production) with MRS (consumption)</li>
+        <li>Saying "utility can be measured" in IC analysis — it cannot (ordinal only)</li>
+        <li>Forgetting the conditions for producer/consumer equilibrium</li>
+        <li>Writing MP = TP/L instead of ΔTP/ΔL</li>
+        <li>Not linking Euler's Theorem to CRS — it only holds under CRS</li>
+        <li>Skipping conclusion paragraph in 10/15-mark answers</li>
+      </ul>
+    </div>
+    <div class="tip-col right">
+      <h4>✅ How to Impress the Examiner</h4>
+      <ul>
+        <li>Start every answer with a crisp definition (2–3 lines)</li>
+        <li>Always draw diagrams for IC, isoquant, supply-demand questions</li>
+        <li>Use economic terminology: ceteris paribus, equilibrium, marginal, elasticity</li>
+        <li>Structure answers: Introduction → Theory/Explanation → Diagram → Example → Conclusion</li>
+        <li>Relate theory to real life (e.g., engineering firm for production theory)</li>
+        <li>Use formulas alongside verbal explanation</li>
+        <li>Write equilibrium condition equations — examiners love them</li>
+        <li>End with a concluding sentence restating the key point</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 8 — LAST MINUTE STRATEGY
+═════════════════════════════════════════════════════ -->
+<section class="section" id="lastminute">
+  <div class="section-header">
+    <span class="section-icon">⏱️</span>
+    <div>
+      <span class="sec-num">Section 08</span>
+      <h2>Last-Minute Revision Strategy</h2>
+    </div>
+  </div>
+
+  <h3 class="topic-title" style="margin-bottom:1.2rem;">Night Before the Exam (3–4 Hours)</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">Hour 1</div>
+      <p>Revise Section 6 (Revision Cards) fully. Memorise all formulas and equilibrium conditions. Do NOT read new material — only recall what you've studied.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Hour 2</div>
+      <p>Redraw all 4 diagrams from memory: Supply-Demand, Consumer Equilibrium, Producer Equilibrium, TP-AP-MP. Practice until labels are automatic.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Hour 3</div>
+      <p>Read Model Answers for Q1 (Economics scope), Q2 (Isoquant-Isocost), Q3 (Euler's Theorem). Focus on structure, not word-for-word memorisation.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Final 30 mins</div>
+      <p>Skim comparison tables. Review the ⭐⭐⭐ questions list. Get full sleep — cognitive performance matters more than extra late-night reading.</p>
+    </div>
+  </div>
+
+  <h3 class="topic-title" style="margin-top:2rem;margin-bottom:1.2rem;">During the Exam (30-Mark Paper)</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-time">First 5 mins</div>
+      <p>Read ALL questions carefully. Identify which questions match your strongest topics. Plan which questions to attempt — do not start writing immediately.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Per 10-Mark Question</div>
+      <p>Allocate ~15 minutes. Spend 2 mins planning structure, 10 mins writing (with diagram if applicable), 3 mins reviewing. A structured 3-page answer beats a 5-page rambling one.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Per 5-Mark Question</div>
+      <p>Allocate ~8 minutes. Write a definition, 2–3 key points with brief explanation, and a short conclusion. Include a mini-diagram if relevant (1 mark extra).</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">Last 5 mins</div>
+      <p>Review that all questions are attempted. Check diagram labels. Ensure each answer has a conclusion sentence. Write legibly — presentation matters.</p>
+    </div>
+  </div>
+
+  <div class="example-box" style="margin-top:1.5rem;">
+    <strong>🎯 Golden Rule</strong>
+    For a 30-mark exam: attempt 3 × 10-mark questions, or mixed 5+10+15 combinations. Always attempt the full required number of questions — a partial answer on a 10-mark question scores more than leaving it blank. Diagrams can earn you 2–3 extra marks even if your theory is weak.
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Economics Exam Prep Guide · CSE Midterm · Topics: Introduction, Microeconomics, Production Theory</p>
+  <p style="margin-top:0.4rem;">Prepared for exam excellence — Good luck! 📚</p>
+</footer>
+
+</body>
+</html>
